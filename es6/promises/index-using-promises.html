@@ -1,0 +1,27 @@
+<head>
+</head>
+<body>
+	<button class="clicker">Click</button>
+	<script>
+		const startGame = (countLimit) => {
+			let counter = 0;
+
+			const promise = new Promise( (resolve, reject ) => {
+				setTimeout(() => {
+					if (counter > countLimit) { resolve() }
+					else { reject() };
+				}, 2000);
+			});
+
+			document.querySelector('.clicker').addEventListener('click', () => {
+				counter++;
+			});
+						
+			return promise
+		};
+
+		startGame(1)
+			.then(() => console.log("You Win"))
+			.catch(() => console.log("You Lose"))
+	</script>
+</body>
