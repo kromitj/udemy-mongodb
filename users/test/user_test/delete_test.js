@@ -2,44 +2,34 @@ const userDeleteTest = (assert, User, userSeed) => {
 	const joeName = userSeed.joe.init.name;
 
 	describe('Deletes a User', () => {
-		let joe;
+		
 		beforeEach((done) => {
 			joe = new User(userSeed.joe.init);
 			joe.save()
 				.then(() => done())
 		})
+
 		it('model instace remove', (done) => {
-			joe.remove()
-				.then(() => User.findOne({ name: joeName }))
-				.then((user) => {
-					assert(user === null)
-					done();
-				})
+			assertDeletion(joe.remove(), joeName, done)
 		})
 		it('class instace remove', (done) => {
-			User.remove({ name: joeName })
-			.then(() => User.findOne({ name: joeName }))
-			.then((user) => {
-				assert(user === null)
-				done();
-			})
+			assertDeletion(User.remove({ name: joeName }), joeName, done)
 		})
 		it('class instace findAndRemove', (done) => {
-			User.findOneAndRemove({name: joeName})
-			.then(() => User.findOne({ name: joeName}))
-			.then((user) => {
-				assert(user === null)
-				done()
-			})
+			assertDeletion(User.findOneAndRemove({name: joeName}), joeName, done)
 		})
 		it('class instace findByIdAndRemove', (done) => {
-			User.findByIdAndRemove(joe._id)
-			.then(() => User.findOne({name: joeName}))
-			.then((user) => {
-				assert(user === null)
-				done()
-			})
+			assertDeletion(User.findByIdAndRemove(joe._id), joeName, done)			
 		})
+
+		const assertDeletion = (operation, userName, done) => {
+			operation
+				.then(() => User.findOne({name: userName}))
+				.then((user) => {
+					assert(user === null)
+					done()
+				})
+		}
 	})
 }
 
