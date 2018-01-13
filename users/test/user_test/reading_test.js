@@ -1,13 +1,14 @@
 const userReadTest = (assert, User, userSeed) => {
+	const joeName = userSeed.joe.init.name;
 	describe("Reading Users out of the userbase", () => {
 
 		beforeEach((done) => {
-			joe = new User(userSeed.joe)
+			joe = new User(userSeed.joe.init)
 			joe.save()
 				.then(() => done())
 		})
 		it('finds all users with the name Joe', (done) => {
-			User.find(userSeed.joe).then((users) => {
+			User.find({name: joeName}).then((users) => {
 				assert(users[0]._id.toString() == joe._id.toString())
 				done()
 			})
@@ -15,7 +16,7 @@ const userReadTest = (assert, User, userSeed) => {
 		it('finds a specific user', (done) => {
 			User.findOne({ _id: joe._id})
 				.then((user) => {
-					assert(user.name === userSeed.joe.name)
+					assert(user.name === joeName)
 					done();
 				})
 		})

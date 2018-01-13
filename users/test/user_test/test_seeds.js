@@ -1,6 +1,10 @@
 const userSeed = {
-	joe: {name: "joe"},
-	joeToAlex: { name: "Alex"}
+	joe: {
+		init: { name: "joe"},
+		props: {
+			name: ["alex"]
+		}
+	}
 }
 
 module.exports = {

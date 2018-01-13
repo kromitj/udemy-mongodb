@@ -9,9 +9,10 @@ before((done) => {
 	mongoose.connection
 		.once('open', () => {
 			console.log(`---- Connected to mongo at: ${database} -------`)
+			console.log(Date())
 			done()
 		})
-		.on('error', error => console.error("Eror: ", error))	
+		.on('error', (error) => console.error("Eror: ", error))	
 })
 
 beforeEach((done) => {

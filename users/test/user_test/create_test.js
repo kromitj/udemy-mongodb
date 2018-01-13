@@ -1,10 +1,10 @@
 const userCreateTest = (assert, User, userSeed) => {
 	describe('Creating Records: ', () => {
-		it('1: User model is valid', () => {
+		it('User model is valid', () => {
 			assert(typeof User === "function");
 		})
-		it("2: saves a User:" , (done) => {
-			const newUser = new User(userSeed.joe);
+		it("saves a User:" , (done) => {
+			const newUser = new User(userSeed.joe.init);
 			newUser.save()
 			.then(() => {
 				assert(!newUser.isNew)
