@@ -2,11 +2,9 @@ const userDeleteTest = (assert, User, userSeed) => {
 	const joeName = userSeed.joe.init.name;
 
 	describe('Deletes a User', () => {
-		
+
 		beforeEach((done) => {
-			joe = new User(userSeed.joe.init);
-			joe.save()
-				.then(() => done())
+			createJoe(done)
 		})
 
 		it('model instace remove', (done) => {
@@ -29,6 +27,11 @@ const userDeleteTest = (assert, User, userSeed) => {
 					assert(user === null)
 					done()
 				})
+		}
+		const createJoe = (done) => {
+			joe = new User(userSeed.joe.init);
+			joe.save()
+				.then(() => done())
 		}
 	})
 }

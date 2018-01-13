@@ -1,6 +1,7 @@
 const userUpdateTest = (assert, User, userSeed) => {
 	const joeName = userSeed.joe.init.name;
-	const joesNewName = userSeed.joe.props.name[0]
+	const joesNewName = userSeed.joe.props.name[0];
+
 	describe("Updating Users in the collection", () => {
 
 		beforeEach((done) => {
@@ -23,7 +24,10 @@ const userUpdateTest = (assert, User, userSeed) => {
 
 		});
 		it('A model class can update one record', (done) => {
-			done()
+			assertName(
+				User.findOneAndUpdate({name: joeName}, { name: joesNewName}),
+				joesNewName, done
+			)
 		});
 
 

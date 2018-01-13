@@ -7,7 +7,7 @@ const { userReadTest } = require('./user_test/reading_test')
 const { userUpdateTest } = require('./user_test/update_test')
 const { userDeleteTest } = require('./user_test/delete_test')
 
+userDeleteTest(assert, User, userSeed);
 userCreateTest(assert, User, userSeed);
 userReadTest(assert, User, userSeed);
 userUpdateTest(assert, User, userSeed);
-userDeleteTest(assert, User, userSeed);
