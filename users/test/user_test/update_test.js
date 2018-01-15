@@ -1,6 +1,6 @@
 const userUpdateTest = (assert, User, userSeed) => {
 	const joeName = userSeed.joe.init.name;
-	const joesNewName = userSeed.joe.props.name[0];
+	const joesNewName = userSeed.joe.updateProps.name;
 
 	describe("Updating Users in the collection", () => {
 
@@ -29,7 +29,21 @@ const userUpdateTest = (assert, User, userSeed) => {
 				joesNewName, done
 			)
 		});
+		it('A model class can find a record with an id and update', (done) => {
+			assertName(
+				User.findByIdAndUpdate(joe._id, {name: joesNewName }),
+				joesNewName, done
+				)
+		})
 
+		it('Finds all User records that match query and increments their postCount by one', (done) => {
+			User.update({name: joeName}, { $inc: { postCount: 1}})
+				.then(() => User.findOne({name: joeName}))
+				.then((user) => { 
+					assert(user.postCount === 1)
+				})
+				done()
+		})
 
 
 		const assertName = (operation, name, done) => {

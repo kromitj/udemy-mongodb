@@ -1,5 +1,6 @@
 const userReadTest = (assert, User, userSeed) => {
 	const joeName = userSeed.joe.init.name;
+	
 	describe("Reading Users out of the userbase", () => {
 
 		beforeEach((done) => {
