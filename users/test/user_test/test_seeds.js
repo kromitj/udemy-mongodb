@@ -1,6 +1,6 @@
 const userSeed = {
 	joe: {
-		init: { name: "joe", postCount: 0},
+		init: { name: "joe", postCount: 0, posts: [{title: "Blah Blah Blah"}]},
 		initWith: {
 			emptyName: {name: "", postCount: 0},
 			shortName: {name: "Al", postCount: 0},
@@ -8,6 +8,9 @@ const userSeed = {
 		},
 		updateProps: {
 			name: "alex"
+		},
+		add: {
+			post: {title: "Yoooooooooooooooooooooo"}
 		}
 	}
 }

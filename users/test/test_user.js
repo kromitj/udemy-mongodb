@@ -1,4 +1,4 @@
-cconst assert = require('assert');
+const assert = require('assert');
 const User = require('../src/user');
 const { userSeed } = require('./user_test/test_seeds');
 
