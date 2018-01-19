@@ -1,10 +1,10 @@
 const userSeed = {
 	joe: {
-		init: { name: "joe", postCount: 0, posts: [{title: "Blah Blah Blah"}]},
+		init: { name: "joe", posts: [{title: "Blah Blah Blah"}], likes: 0},
 		initWith: {
-			emptyName: {name: "", postCount: 0},
-			shortName: {name: "Al", postCount: 0},
-			posts: {name: "joe", postCount: 0, posts: [{title: "Blah Blah Blah"}]}
+			emptyName: {name: "", posts: [{title: "Blah Blah Blah"}], likes: 0},
+			shortName: {name: "Al", posts: [{title: "Blah Blah Blah"}], likes: 0},
+			posts: {name: "joe", posts: [{title: "Blah Blah Blah"}], likes: 0}
 		},
 		updateProps: {
 			name: "alex"

@@ -37,10 +37,10 @@ const userUpdateTest = (assert, User, userSeed) => {
 		})
 
 		it('Finds all User records that match query and increments their postCount by one', (done) => {
-			User.update({name: joeName}, { $inc: { postCount: 1}})
+			User.update({name: joeName}, { $inc: { likes: 1}})
 				.then(() => User.findOne({name: joeName}))
 				.then((user) => { 
-					assert(user.postCount === 1)
+					assert(user.likes === 1)
 				})
 				done()
 		})
