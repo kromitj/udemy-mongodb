@@ -17,7 +17,7 @@ const userDeleteTest = (assert, User, userSeed) => {
 			assertDeletion(User.findOneAndRemove({name: joeName}), joeName, done)
 		})
 		it('class instace findByIdAndRemove', (done) => {
-			assertDeletion(User.findByIdAndRemove(joe._id), joeName, done)			
+			assertDeletion(User.findByIdAndRemove(joe._id), joeName, done)
 		})
 
 		const assertDeletion = (operation, userName, done) => {
