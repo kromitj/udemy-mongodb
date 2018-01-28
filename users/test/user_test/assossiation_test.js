@@ -53,7 +53,6 @@ const userAssossiationTest = (assert, User, Comment, BlogPost, userSeed) => {
 				}
 			})
 			.then((user) => {
-				console.log("user: ", user.blogPosts[0].comments[0].user)
 				done()
 			})
 		})

@@ -13,7 +13,7 @@ const userSeed = {
 		}
 	},
 	blogPosts: {
-		init: {title: "Superman Seen again", content: "When will he stop trying to fix other peoples shit"}
+		init: {title: "Superman Seen again", content: "I think I know who he is...."}
 	},
 	comments: {
 		init: {content: "I seen him!!!!!!"}
