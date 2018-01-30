@@ -49,7 +49,6 @@ const userPostTest = (assert, User, userSeed) => {
 		it('post count returns the number of posts', (done) => {
 			User.findOne({name: joeName})
 			.then((user) => {
-				console.log(user.postCount)
 				assert(user.postCount === 1)
 				done()
 			})

@@ -4,7 +4,7 @@ mongoose.Promise = global.Promise;
 
 before((done) => {
 	mongoose.connect(database, {
-		 useMongoClient: true
+		 useMongoClient: truet
 	});
 	mongoose.connection
 		.once('open', () => {

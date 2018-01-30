@@ -15,8 +15,6 @@ const userMiddlewareTest = (assert, User, BlogPost, userSeed) => {
 				.then(() => {
 					BlogPost.count()
 						.then((count) => {
-							console.log(joe.blogPosts)
-							console.log("count: ", count )
 							done()
 						})
 				})

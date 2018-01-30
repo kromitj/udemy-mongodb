@@ -1,4 +1,4 @@
-const userUpdateTest = (assert, User, userSeed) => {
+uconst userUpdateTest = (assert, User, userSeed) => {
 	const joeName = userSeed.joe.init.name;
 	const joesNewName = userSeed.joe.updateProps.name;
 

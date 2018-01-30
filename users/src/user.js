@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+ S;const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const PostSchema = require('./post');
@@ -18,14 +18,13 @@ const userSchema = new Schema({
 		type: Schema.Types.ObjectId,
 		ref: 'blogpost'
 	}]
-});
+}); 
 
 userSchema.virtual('postCount').get(function() {
 	return this.posts.length;
 });
 
 userSchema.pre('remove', function(next) {
-	console.log("blogposts: ", this.blogPosts)
 	const blogPosts = mongoose.model('blogpost');
 	blogPosts.remove( { _id: { $in: this.blogPosts} } )
 		.then(() => next())

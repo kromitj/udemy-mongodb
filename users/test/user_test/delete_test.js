@@ -23,7 +23,7 @@ const userDeleteTest = (assert, User, userSeed) => {
 		const assertDeletion = (operation, userName, done) => {
 			operation
 				.then(() => User.findOne({name: userName}))
-				.then((user) => {
+				.then((user) => {c
 					assert(user === null)
 					done()
 				})

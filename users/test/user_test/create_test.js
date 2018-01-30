@@ -7,8 +7,9 @@ const userCreateTest = (assert, User, userSeed) => {
 				.then(() => done())
 		})
 
-		it('User model is valid', () => {
+		it('User model is valid', (done) => {
 			assert(typeof User === "function");
+			done()
 		})
 		it("saves a User:" , (done) => {			
 				assert(!joe.isNew)
@@ -20,4 +21,4 @@ const userCreateTest = (assert, User, userSeed) => {
 
 module.exports = {
 	userCreateTest
-}
+}d

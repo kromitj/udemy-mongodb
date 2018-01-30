@@ -4,22 +4,32 @@ const userReadTest = (assert, User, userSeed) => {
 	describe("Reading Users out of the userbase", () => {
 
 		beforeEach((done) => {
-			joe = new User(userSeed.joe.init)
-			joe.save()
+			let joe, mary, jerome, arturo;
+			joe = new User(userSeed.joe.init);
+			mary = new User(userSeed.mary);
+			jerome = new User(userSeed.jerome);
+			arturo = new User(userSeed.arturo);
+			Promise.all([joe.save(), mary.save(), jerome.save(), arturo.save()])
 				.then(() => done())
 		})
+
 		it('finds all users with the name Joe', (done) => {
-			User.find({name: joeName}).then((users) => {
-				assert(users[0]._id.toString() == joe._id.toString())
+			User.find({name: joeName})
+			.then((users) => {
+				assert(users[0].name === joe.name);
 				done()
 			})
 		})
 		it('finds a specific user', (done) => {
-			User.findOne({ _id: joe._id})
+			User.findOne({ name: joeName})
 				.then((user) => {
 					assert(user.name === joeName)
 					done();
 				})
+		})
+		it('can skip and limit', () => {
+			User.find({}).skip(1).limit(2)
+			.then((users) => { assert(users.length === 2) })
 		})
 
 	})

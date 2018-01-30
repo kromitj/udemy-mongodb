@@ -12,6 +12,10 @@ const userSeed = {
 			post: {title: "Yoooooooooooooooooooooo"}
 		}
 	},
+	mary: { name: "mary"},
+	jerome: { name: "jerome"},
+	arturo: {name: "arturo"},
+
 	blogPosts: {
 		init: {title: "Superman Seen again", content: "I think I know who he is...."}
 	},
